@@ -8,5 +8,6 @@ async def notify_admins(message):
             await bot.send_message(admin, message)
         except:
             pass
+    print("Notification sent to admins")
 
-asyncio.run(notify_admins("Bot ishga tushdi!\n@ITwithBobur kanaliga obuna bo'lishni unutmang!"))
+asyncio.run(notify_admins("Bot ishga tushdi! /start"))

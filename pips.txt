@@ -1,4 +1,4 @@
 aiohttp
 environs
 pyTelegramBotAPI
-
+psycopg2-binary
