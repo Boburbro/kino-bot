@@ -1,0 +1,4 @@
+aiohttp
+environs
+pyTelegramBotAPI
+
