@@ -22,8 +22,13 @@ async def aa():
     #         plan=100,
     #     ),
     # )
-    channels = await psql.getChannelById(id=-1001726187507)
+    channels = await psql.getCountByChannel(channel_id=0)
     print(channels)
+    # await psql.addAsk(
+    #     channel_id=1,
+    #     user_id=1,
+    # )
+    # print(await psql.isAsked(channel_id=11, user_id=1))
 
 
 asyncio.run(aa())

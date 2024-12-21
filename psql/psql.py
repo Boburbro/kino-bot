@@ -1,8 +1,9 @@
 from psql.base_psql import check_func
+from psql.psql_asks import PSQLAsks
 from psql.psql_channels import PSQLChannel
 
 
-class PSQL(PSQLChannel):
+class PSQL(PSQLChannel, PSQLAsks):
     @check_func
     def initDataBase(self):
         self.cur.execute(

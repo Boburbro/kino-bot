@@ -7,14 +7,14 @@ channels = []
 class PSQLChannel(BasePSQL):
     @check_func
     async def getChannels(self):
-        print(f"{__name__} is running")
+        print(f"{__file__} is running")
         self.cur.execute("SELECT * FROM channels")
         rows = self.cur.fetchall()
         return [ChannelModel(**row) for row in rows]
 
     @check_func
     async def getChannelById(self, id: int):
-        print(f"{__name__} is running")
+        print(f"{__file__} is running")
         self.cur.execute(
             "SELECT * FROM channels WHERE id=%s",
             (id,),
@@ -27,7 +27,7 @@ class PSQLChannel(BasePSQL):
 
     @check_func
     async def createChannel(self, channel: ChannelModel):
-        print(f"{__name__} is running")
+        print(f"{__file__} is running")
         try:
             self.cur.execute(
                 """
@@ -52,7 +52,7 @@ class PSQLChannel(BasePSQL):
 
     @check_func
     async def updateChannel(self, channel: ChannelModel):
-        print(f"{__name__} is running")
+        print(f"{__file__} is running")
         try:
             self.cur.execute(
                 """
