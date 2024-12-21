@@ -1,6 +1,6 @@
-from psql.base_psql import check_func
-from psql.psql_asks import PSQLAsks
-from psql.psql_channels import PSQLChannel
+from helper.psql.base_psql import check_func
+from helper.psql.psql_asks import PSQLAsks
+from helper.psql.psql_channels import PSQLChannel
 
 
 class PSQL(PSQLChannel, PSQLAsks):

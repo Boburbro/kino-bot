@@ -1,5 +1,5 @@
 import asyncio
-from psql.psql import PSQL
+from helper.psql.psql import PSQL
 from data.models.channel_model import ChannelModel
 
 psql = PSQL()
@@ -22,7 +22,7 @@ async def aa():
     #         plan=100,
     #     ),
     # )
-    channels = await psql.getCountByChannel(channel_id=0)
+    channels = await psql.getChannels()
     print(channels)
     # await psql.addAsk(
     #     channel_id=1,

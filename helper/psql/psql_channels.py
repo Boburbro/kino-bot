@@ -1,7 +1,5 @@
 from data.models.channel_model import ChannelModel
-from psql.base_psql import BasePSQL, check_func
-
-channels = []
+from helper.psql.base_psql import BasePSQL, check_func
 
 
 class PSQLChannel(BasePSQL):
@@ -10,7 +8,7 @@ class PSQLChannel(BasePSQL):
         print(f"{__file__} is running")
         self.cur.execute("SELECT * FROM channels")
         rows = self.cur.fetchall()
-        return [ChannelModel(**row) for row in rows]
+        return [ChannelModel.fromJson(row) for row in rows]
 
     @check_func
     async def getChannelById(self, id: int):

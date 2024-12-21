@@ -1,4 +1,4 @@
-from psql.base_psql import BasePSQL, check_func
+from helper.psql.base_psql import BasePSQL, check_func
 
 
 class PSQLAsks(BasePSQL):

@@ -1,7 +1,11 @@
-from loader import bot 
+from loader import bot
 import asyncio
 import middlewares
 import handlers
 import utils
 
-asyncio.run(bot.infinity_polling(skip_pending=True))
+if __name__ == "__main__":
+    import tracemalloc
+
+    tracemalloc.start()
+    asyncio.run(bot.infinity_polling(skip_pending=True))
