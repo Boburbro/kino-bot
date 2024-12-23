@@ -85,7 +85,8 @@ IT with Bobur (name)
         psql = PSQL()
         tex = ""
         for channel in await psql.getChannels():
-            tex += f"<code>{channel.id}</code> - {channel.title}\nPlan:{channel.plan}\n{channel.link}\n\n"
+            count = await psql.getCountByChannel(channel_id=channel.id)
+            tex += f"<code>{channel.id}</code> - {channel.title}\nPlan:{count}/{channel.plan}\n{channel.link}\n\n"
 
         if tex == "":
             await bot.send_message(chat_id=chat_id, text="Hech qanday kanal topilmadi!")

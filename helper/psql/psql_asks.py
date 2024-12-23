@@ -25,6 +25,7 @@ class PSQLAsks(BasePSQL):
             query = "INSERT INTO asks (channel_id, user_id) VALUES (%s, %s);"
             self.cur.execute(query, (channel_id, user_id))
             self.conn.commit()
+            print(f"{user_id}:{channel_id}")
 
     @check_func
     async def isAsked(self, channel_id: int, user_id: int):

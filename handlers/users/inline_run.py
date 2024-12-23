@@ -7,11 +7,17 @@ from telebot.types import (
     ReplyKeyboardRemove,
 )
 
+from utils.check_join import checkJoin
+
 
 @bot.callback_query_handler(func=lambda call: True)
 async def callback_query(call: CallbackQuery):
     if call.data == "delete_this_message":
         await bot.delete_message(call.message.chat.id, call.message.message_id)
+    if call.data == "delete_this_message_middleware":
+        await bot.delete_message(call.message.chat.id, call.message.message_id)
+        if await checkJoin(user_id=int(call.message.chat.id)):
+            await bot.send_message(call.message.chat.id, "Malades!")
 
     elif (str(call.data)).startswith("-"):
         psql = PSQL()

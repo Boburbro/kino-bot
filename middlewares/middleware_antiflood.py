@@ -13,21 +13,29 @@ class SimpleMiddleware(BaseMiddleware):
         self.update_types = ["message"]
 
     async def pre_process(self, message, data):
+        print("pre_process")
         if message.chat.type != "private":
+            print("middleware: 1")
             return CancelUpdate()
-        if not message.from_user.id in self.last_time:
+        elif not message.from_user.id in self.last_time:
+            print("middleware: 2")
             self.last_time[message.from_user.id] = message.date
+            if not await checkJoin(message.from_user.id):
+                return CancelUpdate()
             return
-        if message.date - self.last_time[message.from_user.id] < self.limit:
+        elif message.date - self.last_time[message.from_user.id] < self.limit:
+            print("middleware: 3")
             await bot.send_message(message.chat.id, "Siz juda ko'p murojaat qilyabsiz!")
             return CancelUpdate()
         else:
+            print("middleware: 4")
             if not await checkJoin(message.from_user.id):
                 return CancelUpdate()
 
         self.last_time[message.from_user.id] = message.date
 
     async def post_process(self, message, data, exception):
+        print("post_process")
         pass
 
 
