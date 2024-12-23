@@ -17,6 +17,13 @@ class PSQL(PSQLChannel, PSQLAsks):
         link TEXT, 
         plan BIGINT
     );
+
+    CREATE TABLE IF NOT EXISTS movies (
+        id BIGINT PRIMARY KEY,
+        video_id TEXT, 
+        caption TEXT,
+        download_count TEXT
+    );
             """
         )
 

@@ -19,7 +19,7 @@ class PSQLChannel(BasePSQL):
         )
         row = self.cur.fetchone()
         if row:
-            return ChannelModel(**row)
+            return ChannelModel.fromJson(row)
         else:
             return None
 

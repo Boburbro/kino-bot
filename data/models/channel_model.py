@@ -1,5 +1,11 @@
 class ChannelModel:
-    def __init__(self, id: int, title: str, link: str, plan: int):
+    def __init__(
+        self,
+        id: int,
+        title: str,
+        link: str,
+        plan: int,
+    ):
         self.id = id
         self.title = title
         self.link = link
