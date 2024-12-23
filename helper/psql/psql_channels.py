@@ -72,3 +72,13 @@ class PSQLChannel(BasePSQL):
 
         self.conn.commit()
         return True
+
+    @check_func
+    async def deleteChannel(self, id: int):
+        print(f"{__file__} is running")
+        self.cur.execute(
+            "DELETE FROM channels WHERE id=%s",
+            (id,),
+        )
+        self.conn.commit()
+        return True

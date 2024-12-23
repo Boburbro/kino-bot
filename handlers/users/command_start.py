@@ -1,5 +1,5 @@
 from loader import bot
-from telebot.types import Message
+from telebot.types import Message, ReplyKeyboardRemove
 
 from keyboards.default import admin_buttons
 from helper.asynic_funcs import asynic_func
@@ -10,6 +10,7 @@ async def command_start(message: Message):
     await bot.send_message(
         chat_id=message.chat.id,
         text=f"Assalomu alaykum!\n{message.from_user.full_name}",
+        reply_markup=ReplyKeyboardRemove(),
     )
 
 
